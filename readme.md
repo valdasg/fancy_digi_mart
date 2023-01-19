@@ -55,7 +55,8 @@ spark-submit \
 ```
 
 NOTE: App is ment to be used for testing, thus run it on Spark running on local machine. For cluster mode, update config file to use YARN.
-
+### Unit Testing
+Unit test tests for data presence and consistency, i.e. are there parquet files in source directory and is the report generated not empty.
 ### Things to consider
 Unit Testing for functions, testing of ariving data quality, orchestration, incremental load actions, to append new data, modify if exists.
 To have a propper testing setup, make a Docker container with spark and dependancies installed and run app from there.
