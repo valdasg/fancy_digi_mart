@@ -24,7 +24,16 @@ NOTE: App is ment to be used for testing, thus run it on Spark running on local 
 - Docker
 
 ### Running the application
+
 git clone the application.
+Pyspark library and all its dependancies are exceeding github allowed space limit. Thus dependancies file should be created manualy after cloning a repo.
+In parent directory run:
+```
+pip install -t dependencies -r requirements.txt
+```
+This commnad will create dependancies folder, compress it with zip and name dependancies.zip.
+Zip 
+
 If testing: install docker and docker-compose, cd to docker folder and run
 ```
 docker-compose up -d
@@ -35,7 +44,7 @@ Connect to Spark Cluster and run:
 spark-submit \
     --driver-memory 2g \
     --executor-memory  2g \
-    --py-files dependancies.zip \
+    --py-files dependancies.zip, lib.zip \
     spark_app.py
     --source_folder /path/to/source/dir \
     --pg_host your_pg_host \
@@ -49,3 +58,4 @@ NOTE: App is ment to be used for testing, thus run it on Spark running on local 
 
 ### Things to consider
 Unit Testing for functions, testing of ariving data quality, orchestration, incremental load actions, to append new data, modify if exists.
+To have a propper testing setup, make a Docker container with spark and dependancies installed and run app from there.
